@@ -1,5 +1,6 @@
 package me.jojigarcia.model;
 
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -94,4 +95,11 @@ public class Avion {
                 ", distancia=" + distancia + " km" +
                 '}';
     }
+
+    public static Comparator<Avion> comparadorPorDistancia = new Comparator<Avion>() {
+        @Override
+        public int compare(Avion avion1, Avion avion2) {
+            return (int)avion1.getDistancia() - (int)avion2.getDistancia();
+        }
+    };
 }
