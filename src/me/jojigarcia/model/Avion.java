@@ -83,4 +83,15 @@ public class Avion {
             this.distancia = distancia;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "codVuelo='" + codVuelo + '\'' +
+                ", aerolinea='" + aerolinea + '\'' +
+                ", velocidad=" + velocidad + " km/h" +
+                ", fechaHora=" + fechaHora +
+                ", distancia=" + distancia + " km" +
+                '}';
+    }
 }
