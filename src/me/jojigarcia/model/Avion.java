@@ -21,11 +21,11 @@ public class Avion {
     }
 
     public Avion(String codVuelo, String aerolinea, int velocidad, Date fechaHora, double distancia) {
-        this.codVuelo = codVuelo;
-        this.aerolinea = aerolinea;
-        this.velocidad = velocidad;
-        this.fechaHora = fechaHora;
-        this.distancia = distancia;
+        this.setCodVuelo(codVuelo);
+        this.setAerolinea(aerolinea);
+        this.setVelocidad(velocidad);
+        this.setFechaHora();
+        this.setDistancia(distancia);
     }
 
     public String getCodVuelo() {
@@ -33,7 +33,11 @@ public class Avion {
     }
 
     public void setCodVuelo(String codVuelo) {
-        this.codVuelo = codVuelo;
+        if (codVuelo.equals("")){
+            this.codVuelo = "Desconocido";
+        }else {
+            this.codVuelo = codVuelo;
+        }
     }
 
     public String getAerolinea() {
@@ -41,7 +45,11 @@ public class Avion {
     }
 
     public void setAerolinea(String aerolinea) {
-        this.aerolinea = aerolinea;
+        if (aerolinea.equals("")){
+            this.aerolinea = "Desconocido";
+        }else {
+            this.aerolinea = aerolinea;
+        }
     }
 
     public int getVelocidad() {
@@ -49,15 +57,19 @@ public class Avion {
     }
 
     public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
+        if (velocidad < 0){
+            this.velocidad = 100;
+        }else {
+            this.velocidad = velocidad;
+        }
     }
 
     public Date getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
+    public void setFechaHora() {
+        this.fechaHora = new Date();
     }
 
     public double getDistancia() {
@@ -65,6 +77,10 @@ public class Avion {
     }
 
     public void setDistancia(double distancia) {
-        this.distancia = distancia;
+        if (distancia<0){
+            this.distancia = 100;
+        }else {
+            this.distancia = distancia;
+        }
     }
 }
