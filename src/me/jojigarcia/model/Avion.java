@@ -92,8 +92,8 @@ public class Avion {
                 ", aerolinea = " + aerolinea +
                 ", velocidad = " + velocidad + " km/h" +
                 ", fechaHora = " + fechaHora +
-                ", distancia = " + distancia + " km" +
-                '}';
+                ", distancia = " + actualizarDistancia() + " km" +
+                " )";
     }
 
     public static Comparator<Avion> comparadorPorDistancia = new Comparator<Avion>() {
@@ -105,8 +105,19 @@ public class Avion {
 
     public double actualizarDistancia(){
         double nuevaDistancia;
+        double velocidadSegundos;
+        Date actual = new Date();
 
-        nuevaDistancia = this.distancia - (this.velocidad/this.distancia);
+        double lantes = this.getFechaHora().getTime();
+        double lahora = actual.getTime();
+
+        double diff = (lahora - lantes)/(1000*60);
+
+        velocidadSegundos = (double)this.getVelocidad() / 3600;
+
+        nuevaDistancia = this.getDistancia() - (diff * velocidadSegundos);
+
+        this.setDistancia(nuevaDistancia);
 
         return nuevaDistancia;
     }
