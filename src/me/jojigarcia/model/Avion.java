@@ -87,12 +87,12 @@ public class Avion {
 
     @Override
     public String toString() {
-        return "Avion{" +
-                "codVuelo='" + codVuelo + '\'' +
-                ", aerolinea='" + aerolinea + '\'' +
-                ", velocidad=" + velocidad + " km/h" +
-                ", fechaHora=" + fechaHora +
-                ", distancia=" + distancia + " km" +
+        return "Avion( " +
+                "codVuelo = " + codVuelo +
+                ", aerolinea = " + aerolinea +
+                ", velocidad = " + velocidad + " km/h" +
+                ", fechaHora = " + fechaHora +
+                ", distancia = " + distancia + " km" +
                 '}';
     }
 
@@ -102,4 +102,12 @@ public class Avion {
             return (int)avion1.getDistancia() - (int)avion2.getDistancia();
         }
     };
+
+    public double actualizarDistancia(){
+        double nuevaDistancia;
+
+        nuevaDistancia = this.distancia - (this.velocidad/this.distancia);
+
+        return nuevaDistancia;
+    }
 }
