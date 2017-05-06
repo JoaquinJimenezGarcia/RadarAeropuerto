@@ -78,8 +78,8 @@ public class Avion {
     }
 
     public void setDistancia(double distancia) {
-        if (distancia<0){
-            this.distancia = 100;
+        if (distancia<=0){
+            this.distancia = 0;
         }else {
             this.distancia = distancia;
         }
@@ -117,8 +117,12 @@ public class Avion {
 
         nuevaDistancia = this.getDistancia() - (diff * velocidadSegundos);
 
-        this.setDistancia(nuevaDistancia);
-
-        return nuevaDistancia;
+        if (nuevaDistancia > 0) {
+            this.setDistancia(nuevaDistancia);
+            return nuevaDistancia;
+        }else{
+            this.setDistancia(0);
+            return 0.0;
+        }
     }
 }
