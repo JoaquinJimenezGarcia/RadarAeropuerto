@@ -57,14 +57,14 @@ public class RadarApp {
         do {
             System.out.println("Velocidad de la aeronave: ");
             velocidad = input.nextInt();
-        }while (velocidad < 0);
+        }while (velocidad <= 0);
 
         fechaHora = new Date();
 
         do {
             System.out.println("Distancia a pista: ");
             distancia = input.nextDouble();
-        }while (distancia < 0.0);
+        }while (distancia <= 0.0);
 
         avion = new Avion(codVuelo,aerolinea,velocidad,fechaHora,distancia);
 

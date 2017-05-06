@@ -12,6 +12,7 @@ public class Avion {
     private int velocidad;
     private Date fechaHora;
     private double distancia;
+    private boolean llegada;
 
     public Avion() {
         this.codVuelo = "Desconocida";
@@ -93,6 +94,7 @@ public class Avion {
                 ", velocidad = " + velocidad + " km/h" +
                 ", fechaHora = " + fechaHora +
                 ", distancia = " + actualizarDistancia() + " km" +
+                " " + haLlegado() +
                 " )";
     }
 
@@ -122,7 +124,16 @@ public class Avion {
             return nuevaDistancia;
         }else{
             this.setDistancia(0);
+            llegada = true;
             return 0.0;
+        }
+    }
+
+    private String haLlegado(){
+        if (llegada){
+            return "Ha llegado a su destino";
+        }else{
+            return "En camino.";
         }
     }
 }
