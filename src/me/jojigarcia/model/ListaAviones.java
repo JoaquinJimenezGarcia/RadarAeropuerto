@@ -43,6 +43,21 @@ public class ListaAviones {
         }
     }
 
+    public void eliminarAvion(String codVuelo){
+        Iterator<Avion> itAvion = aviones.iterator();
+
+        while (itAvion.hasNext()){
+            Avion avion = itAvion.next();
+
+            if (avion.getCodVuelo().contains(codVuelo)){
+                itAvion.remove();
+                System.out.println("El avión ha sido eliminado correctamente");
+            }else{
+                System.out.println("No existe un avión con ese código.");
+            }
+        }
+    }
+
     public int longitud(){
         return aviones.size();
     }

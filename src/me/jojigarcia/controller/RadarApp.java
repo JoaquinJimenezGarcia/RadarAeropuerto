@@ -3,6 +3,7 @@ package me.jojigarcia.controller;
 import me.jojigarcia.model.Avion;
 import me.jojigarcia.model.ListaAviones;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -29,10 +30,25 @@ public class RadarApp {
                         listaAviones.mostrarAviones();
                     }
                     break;
+                case 3:
+                    if (listaAviones.longitud()>0){
+                        listaAviones.eliminarAvion(leerCodigo());
+                    }
+                    break;
                 default:
                     break;
             }
         }
+    }
+
+    public String leerCodigo(){
+        Scanner input = new Scanner(System.in);
+        String codVuelo;
+
+        System.out.println("Inserte el código del vuelo: ");
+        codVuelo = input.next();
+
+        return codVuelo;
     }
 
     public Avion leerAvion(){
@@ -79,6 +95,7 @@ public class RadarApp {
         System.out.println("* 1. Registrar aeronave    *");
         if (listaAviones.longitud()>0) {
             System.out.println("* 2. Aeronaves registradas *");
+            System.out.println("* 3. Explotar avión        *");
         }
         System.out.println("* 0. Salir                 *");
         System.out.println("****************************");
